@@ -13,23 +13,12 @@ export class AppConfigService {
         return this.configService.get<number>('port')!;
     }
 
-    get datetimeFormatPattern(): string {
-        return this.configService.get<string>('datetimeFormatPattern')!;
-    }
-
-    get timezone(): string {
-        return this.configService.get<string>('timezone')!;
-    }
-
-    get retryAttempts(): number {
-        return this.configService.get<number>('retryAttempts')!;
-    }
-
-    get timeout(): number {
-        return this.configService.get<number>('timeout')!;
-    }
 
     get logLevel(): string {
         return this.configService.get<string>('logLevel')!;
+    }
+
+    get apiKey(): string {
+        return this.configService.get<string>('apiKey')!;
     }
 }

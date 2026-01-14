@@ -6,10 +6,10 @@ export class JoiValidationPipe implements PipeTransform {
     constructor(private schema: Joi.ObjectSchema) { }
 
     transform(value: any, metadata: ArgumentMetadata) {
-        const { error } = this.schema.validate(value, { convert: true }); // convert tries to cast values to the required type
+        const { error, value: validatedValue } = this.schema.validate(value, { convert: true });
         if (error) {
             throw new BadRequestException('Validation failed: ' + error.message);
         }
-        return value;
+        return validatedValue;
     }
 }
